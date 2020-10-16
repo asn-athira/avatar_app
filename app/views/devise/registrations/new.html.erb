@@ -1,23 +1,14 @@
 <%#= render "devise/shared/links" %>
 <center>
 <div class="card">
-  <div class="card-header">
+  <div class="card-header bg-danger">
     Sign Up
   </div>
   <div class="card-body">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <% if resource.avatar.attached? %>
-      <%= image_tag(resource.avatar)%>
-    <% else %>
-      <%= image_tag("/a3.png")%>
-
-    <% end %>
-
-  </div>
-
+ 
   <div class="form-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -36,8 +27,12 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="form-group">
+    &nbsp;&nbsp;&nbsp;<%= f.file_field :avatar %>
+  </div>
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", :class => "btn btn-primary" %>
   </div>
       <p><%= link_to 'Sign In', new_user_session_path %></p>
 <% end %>

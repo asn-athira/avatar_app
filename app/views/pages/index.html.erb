@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">AVATAR</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-danger">
+  <a class="navbar-brand navbar-light" href="#">AVATAR</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,16 +8,33 @@
     <ul class="navbar-nav ">
       
      	<% if current_user %>
-				<li class="nav-item "><%= link_to 'Edit Profile', edit_user_registration_path, :class => "nav-link"  %></li>
 		      <%= image_tag(current_user.avatar_thumbnail)%>
-					<li class="nav-item mr-sm-2"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "nav-link"  %></li>
+					<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "btn btn-outline-light my-2 my-sm-0"  %>
 			<% else %>
-		  	<li class="nav-item"><%= link_to 'Sign Up', new_user_registration_path, :class => "nav-link" %></li>
-		  	<li class="nav-item"><%= link_to 'Sign In', new_user_session_path,:class => "nav-link"  %></li>
+		      <%= link_to 'Sign Up', new_user_registration_path, :class => "btn btn-outline-light my-2 my-sm-0" %>
+		  		<%= link_to 'Sign In', new_user_session_path,:class => "btn btn-outline-light my-2 my-sm-0"  %>
 			<% end %>	 
     </ul>		
  	</div>
 
 </nav>
 
-<h1>Welcome..</h1>
+
+<center>
+ 	<% if current_user %>
+		<%= image_tag "a5.png", alt: "home icon"%><br>
+	  <%= link_to 'Edit Profile', edit_user_registration_path, :class => "btn btn-outline-sucess"  %>
+	<% else %>
+		<h1>Welcome..</h1>
+		<%= image_tag "a4.jpg", alt: "home icon"%>
+	<% end %>	 
+</center>
+
+<footer class="footer">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+  </div>
+  <!-- Copyright -->
+
+</footer>
