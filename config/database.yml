@@ -1,35 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: root
+  password: root
+  pool: 5
+  timeout: 5000
+  host: localhost
 development:
-  adapter: mysql2
-  encoding: utf8
+  <<: *default
   database: avatar_app_development
-  username: root
- #password: 
-  port: 3306
-  host: localhost
-
 test:
-  adapter: mysql2
-  encoding: utf8
+  <<: *default
   database: avatar_app_test
-  username: root
-  # password: 
-  port: 3306
-  host: localhost
-
-staging:
-  adapter: mysql2
-  encoding: utf8
-  database: avatar_app_staging
-  username: root
-  # password: 
-  port: 3306
-  host: localhost
-
 production:
-  adapter: mysql2
-  encoding: utf8
+  <<: *default
   database: avatar_app_production
-  username: root
-  # password: 
-  port: 3306
-  host: localhost
